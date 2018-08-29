@@ -53,13 +53,17 @@ public class TouchManager : MonoBehaviour {
         {
             Vector3 touch_pos = AppUtil.GetTouchPosition();
             Debug.Log("タッチ離した");
-            if (touch_now_left)
+            if (touch_now_left && (touch_pos.x < Screen.width / 2) )
+            {
                 LeftFripper.SetAngle(defaultAngle);
-            else if (touch_now_right)
+                touch_now_left = false;
+            }
+            else if (touch_now_right && (touch_pos.x >= Screen.width / 2))
+            {
                 RightFripper.SetAngle(defaultAngle);
-
-            touch_now_left = false;
-            touch_now_right = false;
+                touch_now_right = false;
+            }
+           
         }
 
     }
