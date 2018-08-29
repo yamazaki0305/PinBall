@@ -10,6 +10,10 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
+//UnityでiOS/Android/Editorの共通タッチ処理を実装する
+//https://qiita.com/tempura/items/4a5482ff6247ec8873df
+
 public static class AppUtil
 {
     private static Vector3 TouchPosition = Vector3.zero;
