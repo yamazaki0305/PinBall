@@ -49,11 +49,33 @@ public class TouchManager : MonoBehaviour {
             }
 
         }
+        // ドラッグ中の処理
+        else if (touch_id == TouchInfo.Moved)
+        {
+            Vector3 touch_pos = AppUtil.GetTouchPosition();
+            if( touch_now_left)
+            {
+                if (touch_pos.x >= Screen.width / 2)
+                {
+                    LeftFripper.SetAngle(defaultAngle);
+                    touch_now_left = false;
+                }
+            }
+            if( touch_now_right )
+            {
+                if (touch_pos.x < Screen.width / 2)
+                {
+                    RightFripper.SetAngle(defaultAngle);
+                    touch_now_right = false;
+                }
+            }
+
+        }
         else if (touch_id == TouchInfo.Ended)
         {
             Vector3 touch_pos = AppUtil.GetTouchPosition();
             Debug.Log("タッチ離した");
-            if (touch_now_left && (touch_pos.x < Screen.width / 2) )
+            if (touch_now_left && (touch_pos.x < Screen.width / 2))
             {
                 LeftFripper.SetAngle(defaultAngle);
                 touch_now_left = false;
@@ -63,7 +85,7 @@ public class TouchManager : MonoBehaviour {
                 RightFripper.SetAngle(defaultAngle);
                 touch_now_right = false;
             }
-           
+
         }
 
     }
