@@ -32,6 +32,7 @@ public static class AppUtil
         }
         else
         {
+ 
             if (Input.touchCount > 0)
             {
                 return (TouchInfo)((int)Input.GetTouch(0).phase);
@@ -55,6 +56,7 @@ public static class AppUtil
         {
             if (Input.touchCount > 0)
             {
+                
                 Touch touch = Input.GetTouch(0);
                 TouchPosition.x = touch.position.x;
                 TouchPosition.y = touch.position.y;
